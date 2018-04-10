@@ -11,9 +11,8 @@ include mpcp.inc
     main PROC C
                  mov ESI, offset frase1
                  mov ECX, lengthof frase1
-                 mov EAX, BYTE PRT [ESI]
-
-        next1:   movzx EAX, BYTE PRT [ESI]
+                 
+        next1:   movzx EAX, BYTE PTR [ESI]
                  push EAX
                  inc ESI
                  loop next1
@@ -26,8 +25,8 @@ include mpcp.inc
                  pop ECX
                  loop next2         
 
-        invoke_getch
-	    ;; Terminar o programa: NAO omitir!
-		invoke	ExitProcess, 0
+        ;;invoke_getch
+	    
+		invoke	ExitProcess, 0  ;; Terminar o programa: NAO omitir!
     main ENDP
 end 
